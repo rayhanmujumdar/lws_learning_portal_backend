@@ -4,7 +4,8 @@ const userSchema = new Schema({
   id: Schema.Types.ObjectId,
   name: {
     type: String,
-    min: [6, "Your name is very short"],
+    minLength: [6, "Your name is very short,at least 6 character"],
+    required: [true, "Name must be required"],
   },
   email: {
     type: String,
@@ -13,7 +14,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: [true, "Password must be required"],
-    min: [6, "Password must be {VALUE} character"],
+    minLength: [6, "Password must be {VALUE} character"],
   },
   role: {
     type: String,
@@ -21,7 +22,7 @@ const userSchema = new Schema({
       values: ["student", "admin"],
       message: "{VALUE} is not Supported",
     },
-    default: 'student'
+    default: "student",
   },
 });
 
