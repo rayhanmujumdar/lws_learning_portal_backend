@@ -29,7 +29,7 @@ const userSchema = new Schema({
 userSchema.path("email").validate(function (v) {
   const regex = /\S+@\S+\.\S+/;
   return String(v).toLowerCase().match(regex);
-}, "Email Validation failed");
+}, "This {VALUE} is no valid");
 
 // password validation
 userSchema.path("password").validate(function (value) {
