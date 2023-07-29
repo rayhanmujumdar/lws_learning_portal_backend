@@ -1,23 +1,28 @@
-const router = require('express').Router()
+const router = require("express").Router();
+const userRouter = require("./user");
+const videoRouter = require("./video");
+const assignmentRouter = require("./assignment");
+const quizzesRouter = require("./quizzes");
+const assignmentMarkRouter = require("./assignmentMark");
+const quizMarkRouter = require("./quizMark");
 
-router.get('/health',(req,res) => {
-    res.json({
-        message: 'success'
-    })
-})
+router.get("/health", (req, res) => {
+  res.json({
+    message: "success",
+  });
+});
 
 // user auth router
-router.use('/api/v1/auth')
+router.use("/api/v1/auth", userRouter);
 // video outer
-router.use('/api/v1/video')
+router.use("/api/v1/video", videoRouter);
 // assignment router
-router.use('/api/v1/assignment')
+router.use("/api/v1/assignment", assignmentRouter);
 // quizzes router
-router.use('/api/v1/quizzes')
+router.use("/api/v1/quizzes", quizzesRouter);
 // assignmentMark router
-router.use('/api/v1/assignmentMark')
+router.use("/api/v1/assignmentMark", assignmentMarkRouter);
 //quizMark router
-router.use('/api/v1/quizMark')
+router.use("/api/v1/quizMark", quizMarkRouter);
 
-
-module.exports =  router
+module.exports = router;
