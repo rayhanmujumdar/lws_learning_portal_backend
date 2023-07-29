@@ -17,7 +17,10 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["student", "admin"],
+    enum: {
+      values: ["student", "admin"],
+      message: "{VALUE} is not Supported",
+    },
     required: [true, "role must be required"],
   },
 });
