@@ -6,7 +6,7 @@ const quizzesRouter = require("./quizzes");
 const assignmentMarkRouter = require("./assignmentMark");
 const quizMarkRouter = require("./quizMark");
 
-router.get("/health", (req, res) => {
+router.get("/health", (_req, res) => {
   res.json({
     message: "success",
   });
