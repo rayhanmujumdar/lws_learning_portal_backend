@@ -10,7 +10,7 @@ const { registerController,loginController } = require("../../controller/user");
 //  * @apiHeader {String} Authorization user's access token
  * @apiBody {name,email,password}
  *
- * @apiSuccess {created 201} status code is api success
+ * @apiSuccess {created 201} status code is api created
  *
  * @apiError (Conflict 409) user already exist error database error
  * @apiError (Internal server error 500) have any server error

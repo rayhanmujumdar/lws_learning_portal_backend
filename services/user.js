@@ -24,9 +24,9 @@ exports.registerService = async (userInfo) => {
 exports.loginService = async (userInfo) => {
   try {
     const { email, password } = userInfo || {};
-    const {
-      _doc: { password: hashPassword, ...user },
-    } = (await User.findOne({ email: email }).select('-__v')) || {};
+    // When documents are queried, they are returned as Mongoose Documents by default. With the Mongoose lean() method, the documents are returned as plain objects.
+    const { password: hashPassword, ...user } =
+      (await User.findOne({ email: email }).lean().select("-__v")) || {};
     const isMatchPassword = await bcrypt.compare(password, hashPassword);
     if (!isMatchPassword) throw error(501, "Password does not match");
     return user;
