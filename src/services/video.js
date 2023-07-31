@@ -32,4 +32,6 @@ exports.updateVideoService = (id, data) => {
   return Video.updateOne({_id: id}, { title, description, url, views, duration });
 };
 // delete a video service
-exports.deleteVideoService = () => {};
+exports.deleteVideoService = (id) => {
+  return Video.deleteOne({_id: id})
+};

@@ -56,10 +56,11 @@ exports.updateVideoController = async (req, res, next) => {
 };
 
 //delete video controller
-exports.deleteVideoController = async () => {
+exports.deleteVideoController = async (req, res, next) => {
   try {
-    const data = req.body;
-    const result = await deleteVideoService();
+    const id = req.params.id;
+    const result = await deleteVideoService(id);
+    res.status(200).json(result);
   } catch (err) {
     next(err);
   }
