@@ -61,6 +61,18 @@ router
    * @apiError {500 internal server error}
    */
   .patch(verifyAdmin, updateVideoController)
+  /** delete video item
+   * @api {PATCH}
+   * @apiDescription - this api use to i can delete my videos
+   * @apiPermission {private} - only access user admin
+   *
+   * @apiHeaders {String} - authorize user access token
+   * @apiParams {id}
+   *
+   * @apiSuccess {200 success} status code is api success
+   * @apiError {500 internal server error}
+   * @apiError {404 resource not found}
+   */
   .delete(verifyAdmin, deleteVideoController);
 
 module.exports = router;
