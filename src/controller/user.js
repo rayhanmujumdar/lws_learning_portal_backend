@@ -1,6 +1,7 @@
-const { registerService, loginService } = require("../services/user");
+const { registerService, loginService ,getUsersService} = require("../services/user");
 const error = require("../utils/error");
 const jwtToken = require("../utils/jwtToken");
+//register route controller
 exports.registerController = async (req, res, next) => {
   try {
     const userInfo = req.body || {};
@@ -18,6 +19,7 @@ exports.registerController = async (req, res, next) => {
   }
 };
 
+// login route controller
 exports.loginController = async (req, res, next) => {
   try {
     const userInfo = req.body || {};
@@ -30,6 +32,19 @@ exports.loginController = async (req, res, next) => {
     });
     res.status(200).json({ user, token });
   } catch (err) {
+    next(err);
+  }
+};
+
+// get all user route controller
+exports.getUsersController = async (req, res, next) => {
+  try {
+    const query = req.query;
+    const users = await getUsersService(query);
+    if (!users) throw error(404, "User not found");
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err)
     next(err);
   }
 };

@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const videoSchema = new Schema({
-  id: Schema.Types.ObjectId,
   title: {
     type: String,
     required: [true, "Title must be required"],
@@ -35,6 +34,6 @@ videoSchema.path("url").validate((v) => {
   return regex.test(v);
 });
 
-const Video = model('Video',videoSchema)
+const Video = model("Video", videoSchema);
 
-module.exports = Video
+module.exports = Video;

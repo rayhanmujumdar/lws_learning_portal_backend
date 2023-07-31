@@ -3,6 +3,7 @@ const User = require("../models/userSchema");
 const bcrypt = require("bcrypt");
 const error = require("../utils/error");
 
+// register controller service
 exports.registerService = async (userInfo) => {
   try {
     const saltRounds = 10;
@@ -21,6 +22,7 @@ exports.registerService = async (userInfo) => {
   }
 };
 
+// login controller service
 exports.loginService = async (userInfo) => {
   try {
     const { email, password } = userInfo || {};
@@ -33,4 +35,13 @@ exports.loginService = async (userInfo) => {
   } catch (err) {
     throw error(err.status, err.message);
   }
+};
+
+// getUsersController service
+exports.getUsersService = (query) => {
+  const { email } = query || {};
+  if (email) {
+    return User.findOne({ email }).lean().select({ __v: 0, password: 0 });
+  }
+  return User.find({}).lean().select({ __v: 0, password: 0 });
 };

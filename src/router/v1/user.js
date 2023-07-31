@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { registerController,loginController } = require("../../controller/user");
+const { registerController,loginController,getUsersController } = require("../../controller/user");
 
 // register route
 /** use JSDOC API documentation generator
@@ -33,5 +33,22 @@ router.post("/register", registerController);
  * @apiError (Internal server error 500) have any server error
  */
 router.post('/login',loginController)
+
+// Get all users
+/** use JSDOC API documentation generator
+ * @api {GET} /auth/users
+ * @apiDescription get all logged in users
+ * @apiPermission public
+ *
+ * @apiHeader no authorization access token
+ *
+ * @apiQuery {email}
+ *
+ * @apiSuccess 200 status code is api success
+ *
+ * @apiError (Not Found 404) user not found error
+ * @apiError (Internal server error 500) have any server error
+ */
+router.get('/users',getUsersController)
 
 module.exports = router;

@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const assignmentMarkSchema = new Schema({
-  id: Schema.Types.ObjectId,
   assignmentId: {
     type: Schema.Types.ObjectId,
     required: [true, "assignment id must be required"],

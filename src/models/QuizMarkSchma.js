@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const quizMarkSchema = new Schema({
-  id: Schema.Types.ObjectId,
   videoId: {
     type: Schema.Types.ObjectId,
     ref: "Video",

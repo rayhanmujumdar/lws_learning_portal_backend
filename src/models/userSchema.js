@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
-  id: Schema.Types.ObjectId,
   name: {
     type: String,
     minLength: [6, "Your name is very short,at least 6 character"],

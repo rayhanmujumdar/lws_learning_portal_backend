@@ -1,7 +1,6 @@
 const {Schema,model} = require('mongoose')
 
 const assignmentSchema = new Schema({
-    id: Schema.Types.ObjectId,
     title: {
         type: String,
         required: [true,"Title must be required"]
