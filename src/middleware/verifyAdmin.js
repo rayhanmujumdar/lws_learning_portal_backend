@@ -1,6 +1,6 @@
 const error = require("../utils/error");
 
-const verifyAdmin = function (req, res, next) {
+const verifyAdmin = function (req, _res, next) {
   try {
     const { role } = req.decoded || {};
     const isAdmin = role === "admin";

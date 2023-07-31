@@ -6,7 +6,7 @@ const verifyToken = function (req, _res, next) {
     const token = authorization.split(" ")[1];
     if (!token) throw error(403, "forbidden");
     jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
-      if (err) throw error(403, "forbidden");
+      if (err) throw error(403, err.message || "forbidden");
       req.decoded = decoded;
       next();
     });

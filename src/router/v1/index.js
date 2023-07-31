@@ -6,6 +6,7 @@ const quizzesRouter = require("./quizzes");
 const assignmentMarkRouter = require("./assignmentMark");
 const quizMarkRouter = require("./quizMark");
 const verifyToken = require("../../middleware/verifyToken");
+const verifyAdmin = require("../../middleware/verifyAdmin");
 
 // check server health to this route
 router.get("/health", (_req, res) => {
@@ -17,7 +18,7 @@ router.get("/health", (_req, res) => {
 // user auth router
 router.use("/api/v1/auth", userRouter);
 // video outer
-router.use("/api/v1/videos", verifyToken, videoRouter);
+router.use("/api/v1/videos", verifyToken, verifyAdmin, videoRouter);
 // assignment router
 router.use("/api/v1/assignment", assignmentRouter);
 // quizzes router
