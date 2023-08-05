@@ -6,6 +6,7 @@ const {
   deleteVideoService,
 } = require("../services/video");
 const error = require("../utils/error");
+const memo = require("../utils/checkObjectId");
 
 //get all video controller
 exports.getVideosController = async (req, res, next) => {
@@ -23,7 +24,6 @@ exports.getVideoController = async (req, res, next) => {
   try {
     const id = req.params.id;
     const video = await getVideoService(id);
-    console.log(video);
     if (!video) throw error(404, "Video item not found");
     res.status(200).json(video);
   } catch (err) {

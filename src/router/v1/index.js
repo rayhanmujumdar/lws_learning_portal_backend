@@ -19,12 +19,12 @@ router.use("/api/v1/auth", userRouter);
 // video outer
 router.use("/api/v1/videos", verifyToken, videoRouter);
 // assignment router
-router.use("/api/v1/assignment", assignmentRouter);
+router.use("/api/v1/assignment",verifyToken, assignmentRouter);
 // quizzes router
-router.use("/api/v1/quizzes", quizzesRouter);
+router.use("/api/v1/quiz",verifyToken, quizzesRouter);
 // assignmentMark router
-router.use("/api/v1/assignmentMark", assignmentMarkRouter);
+router.use("/api/v1/assignmentMark",verifyToken ,assignmentMarkRouter);
 //quizMark router
-router.use("/api/v1/quizMark", quizMarkRouter);
+router.use("/api/v1/quizMark",verifyToken, quizMarkRouter);
 
 module.exports = router;

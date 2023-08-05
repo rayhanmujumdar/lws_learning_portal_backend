@@ -74,5 +74,4 @@ router
    * @apiError {404 resource not found}
    */
   .delete(verifyAdmin, deleteVideoController);
-
 module.exports = router;
