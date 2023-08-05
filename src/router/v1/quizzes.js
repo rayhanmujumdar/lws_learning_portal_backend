@@ -3,6 +3,7 @@ const {
   createQuizController,
   getQuizzesController,
   updateQuizController,
+  deleteQuizController
 } = require("../../controller/quizzes");
 const verifyAdmin = require("../../middleware/verifyAdmin");
 
@@ -45,4 +46,18 @@ router.get("/", getQuizzesController);
  * @apiError {500 internal server error}
  */
 router.put("/:id", verifyAdmin, updateQuizController);
+
+/** delete my existing Quiz
+ * @api {DELETE}
+ * @apiDescription - this api hit to delete my quiz by quizId
+ * @apiPermission {private} - only access authenticate user with admin
+ *
+ * @apiHeaders {String} - authorize user access token
+ * @apiParams {id} - quizId
+ *
+ * @apiSuccess {204 No content} status code is delete quiz successfully
+ * @apiError {500 internal server error}
+ */
+
+router.delete('/:id',verifyAdmin,deleteQuizController)
 module.exports = router;

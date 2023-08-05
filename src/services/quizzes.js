@@ -21,8 +21,15 @@ exports.getQuizzesService = (key, query) => {
 
 //update quiz data service
 exports.updateQuizService = (id, body) => {
-  const ObjectId = checkObjectId(id);
-  if (!ObjectId) throw error(500, "Id is not valid");
+  const isValidId = checkObjectId(id);
+  if (!isValidId) throw error(500, "ObjectId is not valid");
   let filter = { _id: id };
   return Quizzes.updateOne(filter, body);
+};
+
+// delete quiz to database
+exports.deleteQuizService = (id) => {
+  const isValidId = checkObjectId(id);
+  if (!isValidId) throw error(500, "ObjectId is not valid");
+  return Quizzes.deleteOne({_id: id});
 };
