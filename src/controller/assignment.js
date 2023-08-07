@@ -1,6 +1,7 @@
 const {
   createAssignmentService,
   getAssignmentService,
+  updateAssignmentService,
 } = require("../services/assignment");
 
 // get all assignment Controller
@@ -25,9 +26,12 @@ exports.createAssignmentController = async (req, res, next) => {
 };
 
 // update assignment Controller
-exports.updateAssignmentController = (req, res, next) => {
+exports.updateAssignmentController = async (req, res, next) => {
   try {
-    const body = req.body;
+    const id = req.params.id;
+    const updatedData = req.body;
+    const result = await updateAssignmentService(id, updatedData);
+    res.status(200).json(result);
   } catch (err) {
     next(err);
   }

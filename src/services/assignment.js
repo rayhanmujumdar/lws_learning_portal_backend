@@ -1,11 +1,17 @@
 const Assignment = require("../models/assignmentSchema");
 const error = require("../utils/error");
+const checkObjectId = require("../utils/checkObjectId");
 
 // get assignment service
-exports.getAssignmentController = (req,res,next) => {
-
-}
-
+exports.getAssignmentService = (query) => {
+  const { videoId } = query || {};
+  if (videoId) {
+    const isValidObjectId = checkObjectId(videoId);
+    if (!isValidObjectId) throw error(500, "VideoId is not valid");
+    return Assignment.findByVideoId(videoId);
+  }
+  return Assignment.find({}).exec();
+};
 
 // create assignment service
 exports.createAssignmentService = async (data = {}) => {
@@ -21,6 +27,11 @@ exports.createAssignmentService = async (data = {}) => {
     });
     return assignment.save();
   } catch (err) {
-    throw error(err.status, err.message);
+    throw error(500, "Internal server error");
   }
+};
+
+//update Assignment Service
+exports.updateAssignmentService = (id, updatedData) => {
+  return Assignment.updateAssignment({ id, data: updatedData });
 };

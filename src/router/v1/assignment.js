@@ -49,7 +49,7 @@ router.post("/", createAssignmentController);
  *
  * @apiError {500 Internal server error}
  */
-router.patch("/assignment/:id", verifyAdmin, updateAssignmentController);
+router.patch("/:id", verifyAdmin, updateAssignmentController);
 
 /** delete assignment
  * @api {DELETE} /assignment
@@ -63,5 +63,5 @@ router.patch("/assignment/:id", verifyAdmin, updateAssignmentController);
  *
  * @apiError {500 Internal server error}
  */
-router.delete("/assignment/:id", verifyAdmin, deleteAssignmentController);
+router.delete("/:id", verifyAdmin, deleteAssignmentController);
 module.exports = router;
