@@ -4,6 +4,7 @@ const {
   updateQuizService,
   deleteQuizService,
 } = require("../services/quizzes");
+
 // post quiz controller
 exports.createQuizController = async (req, res, next) => {
   try {
@@ -51,7 +52,6 @@ exports.deleteQuizController = async (req, res, next) => {
       message: "content was already deleted",
     });
   } catch (err) {
-    console.log(err);
     next(err);
   }
 };
