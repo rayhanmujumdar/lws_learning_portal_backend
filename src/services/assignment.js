@@ -33,5 +33,17 @@ exports.createAssignmentService = async (data = {}) => {
 
 //update Assignment Service
 exports.updateAssignmentService = (id, updatedData) => {
-  return Assignment.updateAssignment({ id, data: updatedData });
+  const isValidObjectId = checkObjectId(id);
+  if (!isValidObjectId) throw error(500, "VideoId is not valid");
+  return Assignment.updateAssignment({
+    id,
+    data: updatedData,
+  });
+};
+
+//delete assignment service
+exports.deleteAssignmentService = (id) => {
+  const isValidObjectId = checkObjectId(id);
+  if (!isValidObjectId) throw error(500, "VideoId is not valid");
+  return Assignment.deleteOne({ _id: id });
 };

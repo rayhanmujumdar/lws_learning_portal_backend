@@ -2,6 +2,7 @@ const {
   createAssignmentService,
   getAssignmentService,
   updateAssignmentService,
+  deleteAssignmentService,
 } = require("../services/assignment");
 
 // get all assignment Controller
@@ -38,9 +39,16 @@ exports.updateAssignmentController = async (req, res, next) => {
 };
 
 // delete assignment Controller
-exports.deleteAssignmentController = (req, res, next) => {
+exports.deleteAssignmentController = async (req, res, next) => {
   try {
-    const body = req.body;
+    const id = req.params.id;
+    const result = await deleteAssignmentService(id);
+    if (result.deletedCount > 0) {
+      res.status(200).json(result);
+    }
+    res.status(500).json({
+      message: "not exist",
+    });
   } catch (err) {
     next(err);
   }
