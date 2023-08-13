@@ -16,7 +16,7 @@ const assignmentMarkSchema = new Schema({
     default: Date.now(),
   },
   mark: {
-    type: Number,
+    type: String,
     required: [true, "Mark must be required"],
   },
   repo_link: {
@@ -37,7 +37,6 @@ assignmentMarkSchema.path("repo_link").validate((v) => {
   return regex.test(v);
 }, "{VALUE} is not valid link");
 
+const AssignmentMark = model("AssignmentMark", assignmentMarkSchema);
 
-const AssignmentMark = model('AssignmentMark',assignmentMarkSchema)
-
-module.exports = AssignmentMark
+module.exports = AssignmentMark;

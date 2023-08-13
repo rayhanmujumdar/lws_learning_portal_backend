@@ -1,8 +1,9 @@
 const router = require("express").Router();
+const verifyAdmin = require("../../middleware/verifyAdmin");
 const {
   getAssignmentMarkController,
   createAssignmentMarkController,
-  updateAssignmentMarkController
+  updateAssignmentMarkController,
 } = require("../../controller/assignmentMark");
 
 router
@@ -33,9 +34,9 @@ router
    */
   .post(createAssignmentMarkController);
 /** update assignment by assignment id
- * @api {PATCH} /assignmentMark
+ * @api {PATCH} /assignmentMark/:id
  * @apiDescription update assignmentMark property value and set new data
- * @apiPermission private -> only access to user
+ * @apiPermission private -> only can access admin
  *
  * @apiHeaders {String} - authorize user access token
  * @apiBody {Object} - assignmentMark updated data
@@ -45,6 +46,6 @@ router
  *
  * @apiError {500 Internal server error}
  */
-router.patch("/:id", updateAssignmentMarkController);
+router.patch("/:id", verifyAdmin, updateAssignmentMarkController);
 
 module.exports = router;
