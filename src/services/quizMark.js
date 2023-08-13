@@ -1,4 +1,5 @@
-const QuizMark = require("../models/QuizMarkSchma");
+const QuizMark = require("../models/QuizMarkSchema");
+
 // get all quiz Service
 exports.getQuizMarkService = () => {
   return QuizMark.find({});

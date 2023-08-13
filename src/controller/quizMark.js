@@ -2,6 +2,7 @@ const {
   getQuizMarkService,
   createQuizMarkService,
 } = require("../services/quizMark");
+
 // get all quizMark controller
 exports.getQuizMarkController = async (req, res, next) => {
   try {
