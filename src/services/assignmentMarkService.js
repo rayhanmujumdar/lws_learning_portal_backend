@@ -24,3 +24,24 @@ exports.createAssignmentService = (markData = {}) => {
   });
   return assignmentMark.save();
 };
+
+// assignmentMark update data service
+exports.updateAssignmentMarkService = (id, body) => {
+  const filter = { _id: id };
+  const {
+    assignmentId,
+    studentId,
+    createdAt = Date.now(),
+    mark,
+    repo_link,
+    status,
+  } = body || {};
+  return AssignmentMark.updateOne(filter, {
+    assignmentId,
+    studentId,
+    createdAt,
+    mark,
+    repo_link,
+    status,
+  });
+};

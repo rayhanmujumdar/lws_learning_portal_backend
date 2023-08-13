@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {
   getAssignmentMarkController,
   createAssignmentMarkController,
+  updateAssignmentMarkController
 } = require("../../controller/assignmentMark");
 
 router
@@ -31,5 +32,19 @@ router
    * @apiError {500 Internal server error}
    */
   .post(createAssignmentMarkController);
+/** update assignment by assignment id
+ * @api {PATCH} /assignmentMark
+ * @apiDescription update assignmentMark property value and set new data
+ * @apiPermission private -> only access to user
+ *
+ * @apiHeaders {String} - authorize user access token
+ * @apiBody {Object} - assignmentMark updated data
+ * @apiParams {id} - id by filter
+ *
+ * @apiSuccess {201 success} status code is api success
+ *
+ * @apiError {500 Internal server error}
+ */
+router.patch("/:id", updateAssignmentMarkController);
 
 module.exports = router;
