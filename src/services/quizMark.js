@@ -1,8 +1,8 @@
 const QuizMark = require("../models/QuizMarkSchema");
 
 // get all quiz Service
-exports.getQuizMarkService = () => {
-  return QuizMark.find({});
+exports.getQuizMarkService = (id) => {
+  return QuizMark.find({ studentId: id });
 };
 
 //create Quiz Mark service

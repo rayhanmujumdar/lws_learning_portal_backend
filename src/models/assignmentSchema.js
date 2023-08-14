@@ -22,8 +22,8 @@ const assignmentSchema = new Schema({
 });
 
 // my own custom methods add to schema
-assignmentSchema.statics.findByVideoId = function (videoId, cb) {
-  return this.findOne({ videoId }, cb);
+assignmentSchema.statics.findByVideoId = function (id, cb) {
+  return this.findOne({ videoId: id }, cb);
 };
 
 assignmentSchema.statics.updateAssignment = function ({ id, data }, cb) {

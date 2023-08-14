@@ -6,7 +6,8 @@ const {
 // get all quizMark controller
 exports.getQuizMarkController = async (req, res, next) => {
   try {
-    const result = await getQuizMarkService();
+    const {studentId} = req.query || {}
+    const result = await getQuizMarkService(studentId);
     res.status(200).json(result);
   } catch (err) {
     next(err);

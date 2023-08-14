@@ -21,7 +21,7 @@ router.use("/api/v1/videos", verifyToken, videoRouter);
 // assignment router
 router.use("/api/v1/assignment",verifyToken, assignmentRouter);
 // quizzes router
-router.use("/api/v1/quiz",verifyToken, quizzesRouter);
+router.use("/api/v1/quizzes",verifyToken, quizzesRouter);
 // assignmentMark router
 router.use("/api/v1/assignmentMark",verifyToken ,assignmentMarkRouter);
 //quizMark router

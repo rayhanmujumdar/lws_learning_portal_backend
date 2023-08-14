@@ -20,7 +20,7 @@ exports.createQuizController = async (req, res, next) => {
 exports.getQuizzesController = async (req, res, next) => {
   try {
     const query = req.query;
-    const result = await getQuizzesService("videoId", query);
+    const result = await getQuizzesService("video_id", query);
     res.status(200).json(result);
   } catch (err) {
     console.log(err);

@@ -7,6 +7,19 @@ const {
 } = require("../../controller/quizzes");
 const verifyAdmin = require("../../middleware/verifyAdmin");
 
+/** get all quizzes
+ * @api {GET}
+ * @apiDescription - get all quiz by this api with video id
+ * @apiPermission {private} - only access authenticate user
+ *
+ * @apiHeaders {String} - authorize user access token
+ * @apiQuery {Object} - videoId
+ *
+ * @apiSuccess {200 success} status code is get all quiz
+ * @apiError {500 internal server error}
+ */
+router.get("/", getQuizzesController);
+
 /** create a new quizzes
  * @api {POST}
  * @apiDescription - create a quiz for my existing video with video id
@@ -20,18 +33,7 @@ const verifyAdmin = require("../../middleware/verifyAdmin");
  */
 router.post("/", verifyAdmin, createQuizController);
 
-/** get all quizzes
- * @api {GET}
- * @apiDescription - get all quiz by this api with video id
- * @apiPermission {private} - only access authenticate user
- *
- * @apiHeaders {String} - authorize user access token
- * @apiQuery {Object} - videoId
- *
- * @apiSuccess {200 success} status code is get all quiz
- * @apiError {500 internal server error}
- */
-router.get("/", getQuizzesController);
+
 
 /** update Quiz options and other
  * @api {PUT}

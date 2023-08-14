@@ -4,8 +4,7 @@ const {
   createQuizMarkController,
 } = require("../../controller/quizMark");
 
-router
-  .route("/")
+
   /** update assignment by assignment id
    * @api {GET} /quizMark
    * @apiDescription Get all quiz Mark information in this route
@@ -17,7 +16,7 @@ router
    *
    * @apiError {500 Internal server error}
    */
-  .get(getQuizMarkController)
+  router.get("/",getQuizMarkController)
   /** update assignment by assignment id
    * @api {POST} /quizMark
    * @apiDescription create a new quiz mark if i am submitted quizzes
@@ -30,6 +29,6 @@ router
    *
    * @apiError {500 Internal server error}
    */
-  .post(createQuizMarkController);
+  router.post("/",createQuizMarkController);
 
 module.exports = router;

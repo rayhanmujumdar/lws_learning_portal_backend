@@ -16,6 +16,7 @@ exports.createQuizService = (quizBody) => {
 // get all quizzes service
 exports.getQuizzesService = (key, query) => {
   const videoId = query[key] ? { [key]: query[key] } : {};
+  console.log(videoId)
   return Quizzes.find(videoId);
 };
 
@@ -31,5 +32,5 @@ exports.updateQuizService = (id, body) => {
 exports.deleteQuizService = (id) => {
   const isValidId = checkObjectId(id);
   if (!isValidId) throw error(500, "ObjectId is not valid");
-  return Quizzes.deleteOne({_id: id});
+  return Quizzes.deleteOne({ _id: id });
 };
