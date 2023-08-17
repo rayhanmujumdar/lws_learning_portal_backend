@@ -1,15 +1,23 @@
 const { Schema, model } = require("mongoose");
 
 const assignmentMarkSchema = new Schema({
-  assignmentId: {
+  assignment_id: {
     type: Schema.Types.ObjectId,
     required: [true, "assignment id must be required"],
     ref: "Assignment",
   },
-  studentId: {
+  student_id: {
     type: Schema.Types.ObjectId,
     required: [true, "student id must be required"],
     ref: "User",
+  },
+  student_name: {
+    type: String,
+    required: [true, "Student name must be required"],
+  },
+  title: {
+    type: String,
+    required: [true, "title must be required"],
   },
   createdAt: {
     type: Date,
@@ -18,6 +26,10 @@ const assignmentMarkSchema = new Schema({
   mark: {
     type: String,
     required: [true, "Mark must be required"],
+  },
+  totalMark: {
+    type: String,
+    required: [true, "Total Mark must be required"],
   },
   repo_link: {
     type: String,
@@ -33,7 +45,7 @@ const assignmentMarkSchema = new Schema({
 // assignmentMark repo link validation
 assignmentMarkSchema.path("repo_link").validate((v) => {
   const regex =
-    /^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/gm;
+    /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
   return regex.test(v);
 }, "{VALUE} is not valid link");
 

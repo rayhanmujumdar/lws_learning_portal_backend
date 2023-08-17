@@ -6,7 +6,8 @@ const {
 // get all assignment
 exports.getAssignmentMarkController = async (req, res, next) => {
   try {
-    const result = await getAssignmentMarkService();
+    const query = req.query
+    const result = await getAssignmentMarkService("student_id",query);
     res.status(200).json(result);
   } catch (err) {
     next(err);
@@ -19,6 +20,7 @@ exports.createAssignmentMarkController = async (req, res, next) => {
     const result = await createAssignmentService(body);
     res.status(201).json(result);
   } catch (err) {
+    console.log(err)
     next(err);
   }
 };
