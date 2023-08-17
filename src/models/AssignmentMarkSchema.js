@@ -28,7 +28,7 @@ const assignmentMarkSchema = new Schema({
     required: [true, "Mark must be required"],
   },
   totalMark: {
-    type: String,
+    type: Number,
     required: [true, "Total Mark must be required"],
   },
   repo_link: {

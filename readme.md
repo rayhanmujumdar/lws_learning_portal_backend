@@ -62,9 +62,12 @@ Agenda:
 **AssignmentMark:**
 
 - id → string
-- assignmentId → Assignment object
-- studentId → User Object → role: student
+- assignmentI_id → Assignment object
+- student_id → User Object → role: student
 - createdAt: Date
+- student_name → string
+- title - string
+- totalMark → Number
 - mark → number
 - repo_link → string
 - status → string
@@ -72,12 +75,15 @@ Agenda:
 **QuizMark:**
 
 - id → string
-- video → video object
-- student → User object → role: student
+- video_title → string
+- video_id → string
+- student_name → string
+- student_id → string
 - totalQuiz →number
 - totalCorrect → number
 - totalWrong → number
-- perQuizMark → number
+- totalMark → number
+- mark→ number
 
 ## E**ndPoints:**
 
