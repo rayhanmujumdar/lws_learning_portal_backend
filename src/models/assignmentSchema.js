@@ -6,7 +6,11 @@ const assignmentSchema = new Schema({
     type: String,
     required: [true, "Title must be required"],
   },
-  videoId: {
+  video_title: {
+    type: String,
+    required: [true, "video title must be required"],
+  },
+  video_id: {
     type: Schema.Types.ObjectId,
     ref: "Video",
     required: [true, "VideoId must be required"],
@@ -23,12 +27,15 @@ const assignmentSchema = new Schema({
 
 // my own custom methods add to schema
 assignmentSchema.statics.findByVideoId = function (id, cb) {
-  return this.findOne({ videoId: id }, cb);
+  return this.findOne({ video_id: id }, cb);
 };
 
-assignmentSchema.statics.updateAssignment = function ({ id, data }, cb) {
-  const { title, videoId, totalMark } = data;
-  return this.updateOne({ _id: id }, { title, videoId, totalMark });
+assignmentSchema.statics.updateAssignment = function ({ id, data }) {
+  const { title, video_id, video_title, totalMark } = data;
+  return this.updateOne(
+    { _id: id },
+    { title, video_id, video_title, totalMark }
+  );
 };
 
 const Assignment = model("Assignment", assignmentSchema);

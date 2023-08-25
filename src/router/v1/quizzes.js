@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const {
-  createQuizController,
   getQuizzesController,
+  getQuizController,
+  createQuizController,
   updateQuizController,
   deleteQuizController
 } = require("../../controller/quizzes");
@@ -20,6 +21,19 @@ const verifyAdmin = require("../../middleware/verifyAdmin");
  */
 router.get("/", getQuizzesController);
 
+/** get all quizzes
+ * @api {GET}
+ * @apiDescription - get single Quiz
+ * @apiPermission {private} - only access authenticate admin
+ *
+ * @apiHeaders {String} - authorize user access token
+ * @apiParams {id} - quiz id
+ *
+ * @apiSuccess {200 success} status code is get all quiz
+ * @apiError {500 internal server error}
+ */
+router.get("/:id", getQuizController);
+
 /** create a new quizzes
  * @api {POST}
  * @apiDescription - create a quiz for my existing video with video id
@@ -36,7 +50,7 @@ router.post("/", verifyAdmin, createQuizController);
 
 
 /** update Quiz options and other
- * @api {PUT}
+ * @api {PATCH}
  * @apiDescription - this api use to update my quiz option videoId or others
  * @apiPermission {private} - only access authenticate user with admin
  *
@@ -47,7 +61,7 @@ router.post("/", verifyAdmin, createQuizController);
  * @apiSuccess {200 success} status code is update quiz
  * @apiError {500 internal server error}
  */
-router.put("/:id", verifyAdmin, updateQuizController);
+router.patch("/:id", verifyAdmin, updateQuizController);
 
 /** delete my existing Quiz
  * @api {DELETE}

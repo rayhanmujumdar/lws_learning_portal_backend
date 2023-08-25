@@ -5,6 +5,7 @@ const {
   createAssignmentController,
   updateAssignmentController,
   deleteAssignmentController,
+  getSingleAssignmentController
 } = require("../../controller/assignment");
 
 /** get all assignment otherwise get assignment by videoId
@@ -20,6 +21,20 @@ const {
  * @apiError {500 Internal server error}
  */
 router.get("/", getAssignmentController);
+
+/** get all assignment otherwise get assignment by videoId
+ * @api {GET} /assignment/id
+ * @apiDescription get a single assignment by assignmentId
+ * @apiPermission private -> only can access admin
+ *
+ * @apiHeaders {String} - authorize user access token
+ * @apiParams {id}
+ * 
+ * @apiSuccess {200 success} status code is api success
+ *
+ * @apiError {500 Internal server error}
+ */
+router.get("/:id", getSingleAssignmentController);
 
 /** post new assignment within video section
  * @api {POST} /assignment

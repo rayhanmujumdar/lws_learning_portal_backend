@@ -13,16 +13,24 @@ exports.getAssignmentService = (query) => {
   return Assignment.find({}).exec();
 };
 
+// get a single assignment service
+exports.getSingleAssignmentService = (id) => {
+  const isValidObjectId = checkObjectId(id);
+  if (!isValidObjectId) throw error(500, "Assignment id is not valid");
+  return Assignment.findOne({ _id: id });
+};
+
 // create assignment service
 exports.createAssignmentService = async (data = {}) => {
   try {
-    const { title, videoId, totalMark } = data;
-    const findByAssignmentVideoId = await Assignment.findByVideoId(videoId);
+    const { title, video_title, video_id, totalMark } = data;
+    const findByAssignmentVideoId = await Assignment.findByVideoId(video_id);
     if (findByAssignmentVideoId)
       throw error(500, "This video have already an Assignment");
     const assignment = new Assignment({
       title,
-      videoId,
+      video_title,
+      video_id,
       totalMark,
     });
     return assignment.save();

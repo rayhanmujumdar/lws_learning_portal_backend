@@ -1,20 +1,10 @@
 const {
-  createQuizService,
   getQuizzesService,
+  getQuizService,
+  createQuizService,
   updateQuizService,
   deleteQuizService,
 } = require("../services/quizzes");
-
-// post quiz controller
-exports.createQuizController = async (req, res, next) => {
-  try {
-    const quizzes = req.body;
-    const result = await createQuizService(quizzes);
-    res.status(201).json(result);
-  } catch (err) {
-    next(err);
-  }
-};
 
 //Get all quiz controller
 exports.getQuizzesController = async (req, res, next) => {
@@ -22,6 +12,28 @@ exports.getQuizzesController = async (req, res, next) => {
     const query = req.query;
     const result = await getQuizzesService("video_id", query);
     res.status(200).json(result);
+  } catch (err) {
+    next(err);
+  }
+};
+
+//get single quiz controller
+exports.getQuizController = async (req,res,next) => {
+    try{
+      const id = req.params.id
+      const result = await getQuizService(id)
+      res.status(200).json(result)
+    }catch(err){
+      next(err)
+    }
+}
+
+// post quiz controller
+exports.createQuizController = async (req, res, next) => {
+  try {
+    const quizzes = req.body;
+    const result = await createQuizService(quizzes);
+    res.status(201).json(result);
   } catch (err) {
     console.log(err);
     next(err);

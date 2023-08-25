@@ -3,6 +3,7 @@ const {
   getAssignmentService,
   updateAssignmentService,
   deleteAssignmentService,
+  getSingleAssignmentService
 } = require("../services/assignment");
 
 // get all assignment Controller
@@ -12,6 +13,18 @@ exports.getAssignmentController = async (req, res, next) => {
     const result = await getAssignmentService(query);
     res.status(200).json(result);
   } catch (err) {
+    next(err);
+  }
+};
+
+// get a single Assignment Controller
+exports.getSingleAssignmentController = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const result = await getSingleAssignmentService(id);
+    res.status(200).json(result);
+  } catch (err) {
+    console.log(err)
     next(err);
   }
 };

@@ -5,14 +5,22 @@ const quizzesSchema = new Schema({
     type: String,
     required: [true, "Question must be required"],
   },
-  videoId: {
-    type: Schema.Types.ObjectId,
+  video_title: {
+    type: String,
+    required: [true, "Video Title must be required"],
+  },
+  video_id: {
+    type: String,
     ref: "Video",
-    required: [true,"VideoId must be required"]
+    required: [true, "VideoId must be required"],
   },
   options: {
     type: [
       new Schema({
+        id: {
+          type: Number,
+          required: [true, "id must be required"],
+        },
         option: {
           type: String,
           require: [true, "Option must be required"],
@@ -20,7 +28,7 @@ const quizzesSchema = new Schema({
         isCorrect: Boolean,
       }),
     ],
-    required: [true,'Options are must be required']
+    required: [true, "Options are must be required"],
   },
 });
 
