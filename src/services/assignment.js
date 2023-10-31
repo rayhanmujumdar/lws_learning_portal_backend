@@ -1,6 +1,6 @@
-const Assignment = require("../models/assignmentSchema");
-const error = require("../utils/error");
-const checkObjectId = require("../utils/checkObjectId");
+const Assignment = require("../models/assignmentSchema.js");
+const error = require("../utils/error.js");
+const checkObjectId = require("../utils/checkObjectId.js");
 
 // get assignment service
 exports.getAssignmentService = (query) => {

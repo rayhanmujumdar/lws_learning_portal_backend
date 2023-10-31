@@ -1,6 +1,6 @@
-const Quizzes = require("../models/QuizzesSchema");
-const checkObjectId = require("../utils/checkObjectId");
-const error = require("../utils/error");
+const Quizzes = require("../models/QuizzesSchema.js");
+const checkObjectId = require("../utils/checkObjectId.js");
+const error = require("../utils/error.js");
 
 // get all quizzes service
 exports.getQuizzesService = (key, query) => {

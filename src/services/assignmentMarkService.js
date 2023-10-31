@@ -1,4 +1,4 @@
-const AssignmentMark = require("../models/assignmentMarkSchema");
+const AssignmentMark = require("../models/assignmentMarkSchema.js");
 // get all assignment service
 exports.getAssignmentMarkService = (key, query) => {
   const queryKey = query.student_id ? { [key]: query.student_id } : {};

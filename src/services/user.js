@@ -1,7 +1,7 @@
-const User = require("../models/userSchema");
+const User = require("../models/userSchema.js");
 
 const bcrypt = require("bcrypt");
-const error = require("../utils/error");
+const error = require("../utils/error.js");
 
 // register controller service
 exports.registerService = async (userInfo) => {

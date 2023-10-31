@@ -1,5 +1,5 @@
-const Video = require("../models/videoSchema");
-const error = require("../utils/error");
+const Video = require("../models/videoSchema.js");
+const error = require("../utils/error.js");
 
 // get all video service
 exports.getVideosService = (params) => {
