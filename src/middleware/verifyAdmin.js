@@ -1,4 +1,4 @@
-const error = require("../utils/error");
+const error = require("../utils/error.js");
 
 const verifyAdmin = function (req, _res, next) {
   try {

@@ -4,7 +4,7 @@ const {
   updateAssignmentService,
   deleteAssignmentService,
   getSingleAssignmentService
-} = require("../services/assignment");
+} = require("../services/assignment.js");
 
 // get all assignment Controller
 exports.getAssignmentController = async (req, res, next) => {

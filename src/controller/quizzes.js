@@ -4,7 +4,7 @@ const {
   createQuizService,
   updateQuizService,
   deleteQuizService,
-} = require("../services/quizzes");
+} = require("../services/quizzes.js");
 
 //Get all quiz controller
 exports.getQuizzesController = async (req, res, next) => {

@@ -1,7 +1,7 @@
 const {
   getQuizMarkService,
   createQuizMarkService,
-} = require("../services/quizMark");
+} = require("../services/quizMark.js");
 
 // get all quizMark controller
 exports.getQuizMarkController = async (req, res, next) => {

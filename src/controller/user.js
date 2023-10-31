@@ -1,6 +1,6 @@
-const { registerService, loginService ,getUsersService} = require("../services/user");
-const error = require("../utils/error");
-const jwtToken = require("../utils/jwtToken");
+const { registerService, loginService ,getUsersService} = require("../services/user.js");
+const error = require("../utils/error.js");
+const jwtToken = require("../utils/jwtToken.js");
 //register route controller
 exports.registerController = async (req, res, next) => {
   try {

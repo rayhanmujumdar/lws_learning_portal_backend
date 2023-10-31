@@ -4,9 +4,9 @@ const {
   createVideoService,
   updateVideoService,
   deleteVideoService,
-} = require("../services/video");
-const error = require("../utils/error");
-const memo = require("../utils/checkObjectId");
+} = require("../services/video.js");
+const error = require("../utils/error.js");
+const memo = require("../utils/checkObjectId.js");
 
 //get all video controller
 exports.getVideosController = async (req, res, next) => {
