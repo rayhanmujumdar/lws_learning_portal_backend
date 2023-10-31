@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { registerController,loginController,getUsersController } = require("../../controller/user");
+const { registerController,loginController,getUsersController } = require("../../controller/user.js");
 
 // register route
 /** use JSDOC API documentation generator

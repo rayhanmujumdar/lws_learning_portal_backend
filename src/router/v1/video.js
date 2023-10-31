@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const verifyAdmin = require("../../middleware/verifyAdmin");
+const verifyAdmin = require("../../middleware/verifyAdmin.js");
 const {
   getVideosController,
   getVideoController,
   createVideoController,
   updateVideoController,
   deleteVideoController,
-} = require("../../controller/video");
+} = require("../../controller/video.js");
 
 router
   .route("/")

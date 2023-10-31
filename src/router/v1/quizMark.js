@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {
   getQuizMarkController,
   createQuizMarkController,
-} = require("../../controller/quizMark");
+} = require("../../controller/quizMark.js");
 
 
   /** update assignment by assignment id

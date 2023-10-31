@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const userRouter = require("./user");
-const videoRouter = require("./video");
-const assignmentRouter = require("./assignment");
-const quizzesRouter = require("./quizzes");
-const assignmentMarkRouter = require("./assignmentMark");
-const quizMarkRouter = require("./quizMark");
-const verifyToken = require("../../middleware/verifyToken");
+const userRouter = require("./user.js");
+const videoRouter = require("./video.js");
+const assignmentRouter = require("./assignment.js");
+const quizzesRouter = require("./quizzes.js");
+const assignmentMarkRouter = require("./assignmentMark.js");
+const quizMarkRouter = require("./quizMark.js");
+const verifyToken = require("../../middleware/verifyToken.js");
 
 // check server health to this route
 router.get("/api/v1/health", (_req, res) => {

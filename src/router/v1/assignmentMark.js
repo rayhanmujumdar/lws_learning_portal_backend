@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const verifyAdmin = require("../../middleware/verifyAdmin");
+const verifyAdmin = require("../../middleware/verifyAdmin.js");
 const {
   getAssignmentMarkController,
   createAssignmentMarkController,
   updateAssignmentMarkController,
-} = require("../../controller/assignmentMark");
+} = require("../../controller/assignmentMark.js");
 
 router
   .route("/")

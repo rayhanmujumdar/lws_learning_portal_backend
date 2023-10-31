@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const verifyAdmin = require("../../middleware/verifyAdmin");
+const verifyAdmin = require("../../middleware/verifyAdmin.js");
 const {
   getAssignmentController,
   createAssignmentController,
   updateAssignmentController,
   deleteAssignmentController,
   getSingleAssignmentController
-} = require("../../controller/assignment");
+} = require("../../controller/assignment.js");
 
 /** get all assignment otherwise get assignment by videoId
  * @api {GET} /assignment?videoId or /assignment

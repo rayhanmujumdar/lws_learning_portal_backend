@@ -5,8 +5,8 @@ const {
   createQuizController,
   updateQuizController,
   deleteQuizController
-} = require("../../controller/quizzes");
-const verifyAdmin = require("../../middleware/verifyAdmin");
+} = require("../../controller/quizzes.js");
+const verifyAdmin = require("../../middleware/verifyAdmin.js");
 
 /** get all quizzes
  * @api {GET}
