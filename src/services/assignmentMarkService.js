@@ -1,7 +1,8 @@
 const AssignmentMark = require("../models/assignmentMarkSchema");
 // get all assignment service
 exports.getAssignmentMarkService = (key, query) => {
-  const queryKey = query.student_id ? { [key]: query.student_id } : [];
+  const queryKey = query.student_id ? { [key]: query.student_id } : {};
+  console.log(queryKey)
   return AssignmentMark.find(queryKey).lean();
 };
 

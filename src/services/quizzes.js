@@ -12,7 +12,7 @@ exports.getQuizzesService = (key, query) => {
 exports.getQuizService = (id) => {
   const isValidObjectId = checkObjectId(id);
   if (!isValidObjectId) throw error(500, "ObjectId is not valid");
-  return Quizzes.findOne({ _id: id });
+  return Quizzes.findOne({ _id: id }).lean();
 };
 
 // create new quiz service
@@ -26,7 +26,7 @@ exports.updateQuizService = (id, body) => {
   const isValidId = checkObjectId(id);
   if (!isValidId) throw error(500, "ObjectId is not valid");
   let filter = { _id: id };
-  return Quizzes.updateOne(filter, body);
+  return Quizzes.findOneAndUpdate(filter, body, { new: true });
 };
 
 // delete quiz to database

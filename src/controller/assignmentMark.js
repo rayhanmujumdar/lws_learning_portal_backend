@@ -10,6 +10,7 @@ exports.getAssignmentMarkController = async (req, res, next) => {
     const result = await getAssignmentMarkService("student_id",query);
     res.status(200).json(result);
   } catch (err) {
+    console.log(err)
     next(err);
   }
 };
